@@ -1,9 +1,12 @@
+// noinspection CssUnknownProperty
+
 import React from 'react';
 import { Twitter, Facebook } from 'react-feather';
 import styled from 'styled-components/macro';
 import MaxWidthWrapper from '../MaxWidthWrapper';
 
 import VisuallyHidden from '../VisuallyHidden';
+import {QUERIES} from "../../constants";
 
 const Footer = () => {
   return (
@@ -144,6 +147,16 @@ const TopRow = styled.div`
   font-size: 0.875rem;
   border-bottom: 1px solid var(--color-gray-700);
   padding: 24px 0;
+  
+  @media ${QUERIES.tabletAndUp} {
+    flex-direction: row;
+    justify-content: center;
+    gap: 48px;
+  }
+  
+  @media ${QUERIES.desktopAndUp} {
+    justify-content: flex-end;
+  }
 `;
 
 const Social = styled.div`
@@ -165,11 +178,17 @@ const TopNavList = styled.ul`
 `;
 
 const MainNavArea = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 32px;
   padding: 32px 0 48px;
   text-align: center;
+  
+  @media ${QUERIES.tabletAndUp} {
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: left;
+  }
 `;
 
 const MainNavHeading = styled.h2`
@@ -182,12 +201,12 @@ const MainNavHeading = styled.h2`
 const MainNavList = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 4px;  
 `;
 
 const SubfooterWrapper = styled.div`
   background: var(--color-offblack);
-  padding: 8px 0px;
+  padding: 8px 0;
   /* Optical alignment */
   padding-bottom: 16px;
 `;
