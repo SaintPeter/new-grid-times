@@ -1,6 +1,9 @@
+// noinspection CssUnknownProperty
+
 import React from 'react';
 
 import styled from 'styled-components/macro';
+import {QUERIES} from "../../constants";
 
 const SectionTitle = ({ children, cornerLink }) => {
   return (
@@ -19,6 +22,10 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  
+  @media ${QUERIES.desktopAndUp} {
+    margin-top: -8px;
+  }
 `;
 
 const Title = styled.h2`
@@ -26,6 +33,7 @@ const Title = styled.h2`
   font-weight: var(--font-weight-bold);
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  line-height: 1rem;
 `;
 
 const CornerLink = styled.a`

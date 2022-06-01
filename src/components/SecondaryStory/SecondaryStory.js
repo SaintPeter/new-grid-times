@@ -1,5 +1,8 @@
+// noinspection CssUnknownProperty
+
 import React from 'react';
 import styled from 'styled-components/macro';
+import {QUERIES} from "../../constants";
 
 const SecondaryStory = ({ id, title, image, abstract }) => {
   return (
@@ -21,6 +24,13 @@ const Wrapper = styled.article`
   gap: 4px 16px;
   grid-template-columns: 120px 1fr;
   color: var(--color-gray-900);
+  
+  @media ${QUERIES.tabletOnly} {
+    grid-template-areas:
+    'image image'
+    'heading heading'
+    'abstract abstract';
+  }
 `;
 
 const Image = styled.img`
